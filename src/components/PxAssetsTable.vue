@@ -13,14 +13,20 @@
         <td class="hidden sm:block"></td>
       </tr>
     </thead>
-    <tbody>
-      <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <tbody v-for="a in assets" v-bind:key="a.id">
+      <tr
+        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+      >
+        <td>
+          <img :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`" :alt="a.name">
+        </td>
+        <td>
+          <b># {{a.rank}}</b>
+        </td>
+        <td>{{a.name}}</td>
+        <td>{{a.priceUsd}}</td>
+        <td>{{a.marketCapUsd}}</td>
+        <td>{{a.changePercent24Hr}}</td>
         <td class="hidden sm:block"></td>
       </tr>
     </tbody>
@@ -29,24 +35,24 @@
 
 <script>
 export default {
-    name: "PxAssetsTable",
-    props: {
-        assets: {
-            type: Array,
-            default: () => [],
-            // default: "string"
-        }
-    }
+  name: 'PxAssetsTable',
+  props: {
+    assets: {
+      type: Array,
+      default: () => [],
+      // default: "string"
+    },
+  },
 }
 </script>
 
 <style scoped>
 .up::before {
-  content: "👆";
+  content: '👆';
 }
 
 .down::before {
-  content: "👇";
+  content: '👇';
 }
 
 td {
