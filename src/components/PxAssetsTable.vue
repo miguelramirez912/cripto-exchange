@@ -18,19 +18,26 @@
         class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
       >
         <td>
-          <img 
-          class="w-6 h-6"
-          :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`" 
-          :alt="a.name">
+          <img
+            class="w-6 h-6"
+            :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`"
+            :alt="a.name"
+          />
         </td>
         <td>
-          <b># {{a.rank}}</b>
+          <b># {{ a.rank }}</b>
         </td>
-        <td>{{a.name}}</td>
-        <td>{{a.priceUsd | dollar}}</td>
-        <td>{{a.marketCapUsd | dollar}}</td>
-        <td v-bind:class="a.changePercent24Hr.includes('-') ? 'text-red-600' : 'text-green-600'">
-          {{a.changePercent24Hr | percent}}
+        <td>{{ a.name }}</td>
+        <td>{{ a.priceUsd | dollar }}</td>
+        <td>{{ a.marketCapUsd | dollar }}</td>
+        <td
+          v-bind:class="
+            a.changePercent24Hr.includes('-')
+              ? 'text-red-600'
+              : 'text-green-600'
+          "
+        >
+          {{ a.changePercent24Hr | percent }}
         </td>
         <td class="hidden sm:block"></td>
       </tr>
@@ -48,7 +55,7 @@ export default {
       // default: "string"
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -65,7 +72,7 @@ td {
   font-size: 0.6rem;
   text-align: center;
 }
-td img{
+td img {
   max-width: none;
 }
 
