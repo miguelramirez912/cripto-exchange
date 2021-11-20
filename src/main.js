@@ -5,6 +5,14 @@ import '@/assets/css/tailwind.css';
 import router from '@/router';
 import { dollarFilter, percentFilter } from '@/filter';
 
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+import { VueSpinners } from '@saeris/vue-spinners'
+
+Vue.use(Chartkick.use(Chart))
+Vue.use(VueSpinners)
+
+
 Vue.config.productionTip = false;
 
 Vue.filter('dollar', dollarFilter);
