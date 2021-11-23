@@ -1,6 +1,6 @@
 <template>
   <div>
-    <bounce-loader :loading="isLoading" :color="'#68d391'" :size="100"/>
+    <bounce-loader :loading="isLoading" :color="'#68d391'" :size="100" />
     <px-assets-table v-if="!isLoading" v-bind:assets="assets" />
   </div>
 </template>
@@ -20,11 +20,12 @@ export default {
   },
 
   created() {
-    this.isLoading = true
+    this.isLoading = true;
 
-    api.getAssets()
-    .then((assets) => (this.assets = assets))
-    .finally(() => this.isLoading = false);
+    api
+      .getAssets()
+      .then((assets) => (this.assets = assets))
+      .finally(() => (this.isLoading = false));
   },
 };
 </script>
